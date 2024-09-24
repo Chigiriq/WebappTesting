@@ -14,13 +14,11 @@ def max3(i, j, k):
         
 
 def odd(i, j , k):
-    if ((i == j and i == True) and j == k):
+    oddAmount = (i + j + k) % 2
+    if (oddAmount == 1):
         return True
     else:
-        if ((i == j and i == True) or (i == k and i == True) or (j == k and j == True)): #ij or ik or jk
-            return False
-        else: 
-            return True
+        return False
 
 def majority(i, j, k):
     if ((i == j and i == True) or (j == k and j ==True) or (i == k and k == True)):
@@ -34,13 +32,12 @@ class Employee:
         self.salary = salary
 
     def get_details(self):
-        return "Name: " + self.name + ", Salary:", self.salary
+        return "Name: " + self.name + ", Salary: " +str(self.salary)
 
-class Manager: #make this a child of employee
+class Manager(Employee): #make this a child of employee
     def __init__(self, name, salary, dept):
-        self.name = name
-        self.salary = salary
+        super().__init__(name, salary)
         self.dept = dept
 
     def get_details(self):
-        return "Name: " + self.name + ", Salary:", self.salary + ", Department: " + self.dept
+        return "Name: " + self.name + ", Salary: " + str(self.salary) + ", Department: " + self.dept
